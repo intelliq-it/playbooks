@@ -1,0 +1,17 @@
+---
+-name: install tomcat on ubuntu version
+ hosts: all
+ tasks:
+   - name: install tomcat8
+     apt:
+       name: tomcat8
+       state: present
+       update_cache: yes
+     when: ansible_distribution_major_version == "14" and ansible_distribution == "ubuntu"
+   - name: install tomcat9
+     apt:
+       name: tomcat9
+       state: present
+       update_cache: yes
+     when: ansible_distribution_major_version == "24"
+

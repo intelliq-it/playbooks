@@ -1,0 +1,21 @@
+---
+- name: impelementing tags
+  hosts: all
+  gather_facts: false
+  become: yes
+  tasks: 
+    - name: install tree
+      apt:
+        name: tree
+        state: present
+      tags: tree_installation
+    - name: create user
+      user:
+        name: kavya
+        password: password
+      tags: user_creation
+    - name: copy passwd file
+      copy: 
+        src: /etc/passwd
+        dest: /tmp
+...    

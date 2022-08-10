@@ -1,0 +1,11 @@
+---
+- name: change password of sai user
+  hosts: all
+  tasks:
+    - name: check for user
+      user:
+        name: sai
+      register: a
+    - name: Display output on the console
+      debug:
+        var: a
